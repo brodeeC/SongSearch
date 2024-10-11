@@ -32,6 +32,17 @@
 
                 if(num === 6){
                     let currP = Array.from(docment.getElementByTagName("p"));
+                    currP.forEach(para => {para.className = "hidden";});
+                }
+
+                let p = document.createElement("p");
+                let div1 = document.createElement("div");
+
+                let tracks = script[num];
+
+                for (let key in tracks){
+                    console.log(`${key}: ${tracks[key]}`);
+                    let text1 = document.createTextNode(`${key}: ${tracks[key]}`);
                 }
             }
 
