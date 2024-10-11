@@ -7,7 +7,7 @@ cors = CORS(app)
 @app.route("/song")
 def songList():
 
-    file = open('top_tracks_2024.json','r')
+    file = open('top_tracks_2023.json','r')
 
 
     return jsonify(file)
