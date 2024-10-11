@@ -42,6 +42,20 @@
     <body>
         <h1> Songs Search</h1>
         <p>
+        <label for="search field">Search within:</label>
+        <select id="search field">
+            <option value="title">Title</option>
+            <option value="artist">Artist</option>
+            <option value="genre">Genre</option>
+        </select>
+
+        <label for="sort order">Sort by:</label>
+        <select id="sort order">
+            <option value="popularity score">Popularity Score</option>
+            <option value="duration">Duration</option>
+        </select>
+
+
             Include explicit songs?<input type="checkbox" id=explicit>
             <button onclick="html()">Search</button>
         </p>
