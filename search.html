@@ -17,10 +17,22 @@
                 let groups = await fetch("http://127.0.0.1:5000/song");
                 let script = await groups.json();
                 let num = document.querySelector("select").value;
-                
+                console.log(script);
 
+                let div = document.getElementById("names");
+                
                 //Clears the previous content before appending new data
                 div.innerHTML = '';
+
+                if(num === 0){
+                    div.className = "hidden";
+                }
+
+                div.className = "show";
+
+                if(num === 6){
+                    let currP = Array.from(docment.getElementByTagName("p"));
+                }
             }
 
         </script>
