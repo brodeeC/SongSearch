@@ -43,7 +43,14 @@
                 for (let key in tracks){
                     console.log(`${key}: ${tracks[key]}`);
                     let text1 = document.createTextNode(`${key}: ${tracks[key]}`);
+                    let br = document.createElement("br");
+                    p.appendChild(text1);
+                    p.appendChild(br);
+                    div.appendChild(p);
+
                 }
+
+                p.className = "show";
             }
 
         </script>
