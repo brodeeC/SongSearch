@@ -16,7 +16,11 @@
             async function html() {
                 let groups = await fetch();
                 let script = await groups.json();
+                let num = document.querySelector("select").value;
                 
+
+                //Clears the previous content before appending new data
+                div.innerHTML = '';
             }
 
         </script>
