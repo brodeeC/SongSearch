@@ -32,6 +32,17 @@
 
                 if(num === 6){
                     let currP = Array.from(docment.getElementByTagName("p"));
+                    currP.forEach(para => {para.className = "hidden";});
+                }
+
+                let p = document.createElement("p");
+                let div1 = document.createElement("div");
+
+                let tracks = script[num];
+
+                for (let key in tracks){
+                    console.log(`${key}: ${tracks[key]}`);
+                    let text1 = document.createTextNode(`${key}: ${tracks[key]}`);
                 }
             }
 
@@ -42,6 +53,20 @@
     <body>
         <h1> Songs Search</h1>
         <p>
+        <label for="search field">Search within:</label>
+        <select id="search field">
+            <option value="title">Title</option>
+            <option value="artist">Artist</option>
+            <option value="genre">Genre</option>
+        </select>
+
+        <label for="sort order">Sort by:</label>
+        <select id="sort order">
+            <option value="popularity score">Popularity Score</option>
+            <option value="duration">Duration</option>
+        </select>
+
+
             Include explicit songs?<input type="checkbox" id=explicit>
             
             <input type="search" id="searchField">
