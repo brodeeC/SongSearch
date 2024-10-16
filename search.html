@@ -12,17 +12,20 @@
     <head>
         <script>
             async function html() {
+                // Where we want to put search results
                 let res = document.getElementById("results");
                 res.innerHTML = "";
 
+                //Getting all the variables set up
                 let search_field = document.getElementById("searchField").value;
 
                 let sort_order = document.getElementById("sortOrder").value;
 
                 let explicit = document.getElementById("explicit").checked;
 
-                let search_box = document.getElementById("searchBox").value;
+                let search_box = document.getElementById("searchBox").value.toLowerCase();
 
+                // Creating the JSON request
                 const postHeaders = new Headers();
                 postHeaders.append("Content-Type", "application/json");
 
@@ -39,9 +42,12 @@
 
                 const songs = await prom.json();
 
+                // No results
                 if (songs.length === 0){
-                    res.innerHTML = "No results found.";
+                    res.innerHTML = "<p>No results found.</p>";
                 }
+
+                //If there are results
                 else{
                     for (const song of songs){
                         let div = document.createElement("div");
