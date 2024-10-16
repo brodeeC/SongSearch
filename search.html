@@ -1,12 +1,3 @@
-<style>
-    .show{
-        display: block;
-    }
-    .hidden{
-        display: none;
-    }
-</style>
-
 <html>
     <title> Song Search</title>
     <head>
@@ -49,39 +40,44 @@
 
                 //If there are results
                 else{
+                    // for each song
                     for (const song of songs){
+                        // create its own div
                         let div = document.createElement("div");
-                        div.setAttribute("class", "song");
 
+                        // create title
+                        let title = document.createElement("p");
 
-                        let titlePara = document.createElement("p");
-
-                        titlePara.appendChild(document.createTextNode(`${song["title"]} by
+                        title.appendChild(document.createTextNode(`${song["title"]} by
                         ${song["artists"].join(", ")}`));
 
-                        div.appendChild(titlePara);
+                        div.appendChild(title);
 
-                        let genrePara = document.createElement("p");
+                        // genre
+                        let genres = document.createElement("p");
 
-                        genrePara.appendChild(document.createTextNode(`Genres: 
+                        genres.appendChild(document.createTextNode(`Genres: 
                         ${song["genres"].join(", ")}`));
 
-                        div.appendChild(genrePara);
+                        div.appendChild(genres);
 
-                        let popPara = document.createElement("p");
+                        // popularity score
+                        let popularity = document.createElement("p");
 
-                        popPara.appendChild(document.createTextNode(`Popularity
+                        popularity.appendChild(document.createTextNode(`Popularity
                         score: ${song["popularity"]}`));
 
-                        div.appendChild(popPara);
+                        div.appendChild(popularity);
 
-                        let durationPara = document.createElement("p");
+                        // duration
+                        let duration = document.createElement("p");
 
-                        durationPara.appendChild(document.createTextNode(`Duration:
+                        duration.appendChild(document.createTextNode(`Duration:
                         ${song["duration_mins"]} minutes`));
 
-                        div.appendChild(durationPara);
+                        div.appendChild(duration);
 
+                        // Link to Spotify
                         let linkPara = document.createElement("p");
                         let link = document.createElement("a");
 
@@ -91,6 +87,7 @@
                         linkPara.appendChild(link);
                         div.appendChild(linkPara);
 
+                        // append it all to a page
                         div.appendChild(document.createElement("hr"));
                         res.appendChild(div);
                     }
