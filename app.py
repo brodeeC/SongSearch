@@ -1,3 +1,4 @@
+import json
 from flask import Flask, jsonify
 from flask_cors import CORS
 
@@ -7,7 +8,8 @@ cors = CORS(app)
 @app.route("/song")
 def songList():
 
-    file = open('top_tracks_2023.json','r')
+    with open('top_tracks_2023.json','r') as file:
+        tracks = json.load(file)
 
 
-    return jsonify(file)
+    return jsonify(tracks)
