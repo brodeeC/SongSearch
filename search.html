@@ -14,6 +14,9 @@
     </head>
         <script>
             async function html() {
+                let div = document.getElementById("names");
+                div.innerHTML = "";
+
                 let groups = await fetch("http://127.0.0.1:5000/song");
                 let script = await groups.json();
 
@@ -25,10 +28,8 @@
 
                 let search_box = document.getElementById("searchBox").value;
 
-                let div = document.getElementById("names");
-                
-                //Clears the previous content before appending new data
-                div.innerHTML = '';
+                const postHeaders = new Headers();
+                postHeaders.append("Content-Type", "application/json");
 
                 script.forEach(song => {
                     if (script[search_field] === search_box){
