@@ -31,6 +31,17 @@
                 const postHeaders = new Headers();
                 postHeaders.append("Content-Type", "application/json");
 
+                const prom = await fetch("/song", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        "searchField": search_field,
+                        "sortOrder": sort_order,
+                        "includeExp": explicit,
+                        "searchBox": search_box
+                    }),
+                    headers: postHeaders
+                });
+
                 script.forEach(song => {
                     if (script[search_field] === search_box){
 
