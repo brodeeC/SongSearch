@@ -64,7 +64,31 @@
 
                         div.appendChild(genrePara);
 
-                        
+                        let popPara = document.createElement("p");
+
+                        popPara.appendChild(document.createTextNode(`Popularity
+                        score: ${song["popularity"]}`));
+
+                        div.appendChild(popPara);
+
+                        let durationPara = document.createElement("p");
+
+                        durationPara.appendChild(document.createTextNode(`Duration:
+                        ${song["duration_mins"]} minutes`));
+
+                        div.appendChile(durationPara);
+
+                        let linkPara = document.createElement("p");
+                        let link = document.createElement("a");
+
+                        link.setAttribute("href", song["url"]);
+                        link.appendChild(document.createTextNode("Listen on Spotify"));
+
+                        linkPara.appendChild(link);
+                        div.appendChild(linkPara);
+
+                        div.appendChild(document.createElement("hr"));
+                        res.appendChild(div);
                     }
                 }
 
