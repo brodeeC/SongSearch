@@ -16,7 +16,14 @@
             async function html() {
                 let groups = await fetch("http://127.0.0.1:5000/song");
                 let script = await groups.json();
-                let num = document.querySelector("select").value;
+
+                let search_field = document.querySelector("select").value;
+
+                let sort_order = document.getElementById("sort order").value;
+
+                let explicit = document.getElementById("explicit");
+
+                let search_box = document.getElementById("searchBox").value;
 
                 let div = document.getElementById("names");
                 
@@ -30,15 +37,16 @@
                 div.className = "show";
 
                 if(num === 6){
+                    console.log("if num === 6");
                     let currP = Array.from(docment.getElementByTagName("p"));
                     currP.forEach(para => {para.className = "hidden";});
                 }
-
+                console.log("below if num === 6");
                 let p = document.createElement("p");
                 let div1 = document.createElement("div");
 
                 let tracks = script[num];
-
+                console.log(tracks);
                 for (let key in tracks){
                     console.log(`${key}: ${tracks[key]}`);
                     let text1 = document.createTextNode(`${key}: ${tracks[key]}`);
@@ -46,7 +54,6 @@
                     p.appendChild(text1);
                     p.appendChild(br);
                     div.appendChild(p);
-                    document.body.appendChild(div);
 
                 }
 
@@ -63,20 +70,20 @@
         <label for="search field">Search within:</label>
         <select id="search field">
             <option value="title">Title</option>
-            <option value="artist">Artist</option>
-            <option value="genre">Genre</option>
+            <option value="artists">Artist</option>
+            <option value="genres">Genre</option>
         </select>
 
         <label for="sort order">Sort by:</label>
         <select id="sort order">
-            <option value="popularity score">Popularity Score</option>
-            <option value="duration">Duration</option>
+            <option value="popularity">Popularity Score</option>
+            <option value="duration_mins">Duration</option>
         </select>
 
 
             Include explicit songs?<input type="checkbox" id=explicit>
             
-            <input type="search" id="searchField" placeholder="Enter Search Terms...">
+            <input type="search" id="searchBox" placeholder="Enter Search Terms...">
             <button onclick="html()">Search</button>
         </p>
         <div id = "names">
