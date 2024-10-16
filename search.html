@@ -10,16 +10,14 @@
 <html>
     <title> Song Search</title>
     <head>
-
-    </head>
         <script>
             async function html() {
                 let res = document.getElementById("results");
                 res.innerHTML = "";
 
-                let search_field = document.querySelector("select").value;
+                let search_field = document.getElementById("searchField").value;
 
-                let sort_order = document.getElementById("sort order").value;
+                let sort_order = document.getElementById("sortOrder").value;
 
                 let explicit = document.getElementById("explicit").checked;
 
@@ -39,7 +37,7 @@
                     headers: postHeaders
                 });
 
-                const songs = prom.json();
+                const songs = await prom.json();
 
                 if (songs.length === 0){
                     res.innerHTML = "No results found.";
@@ -76,7 +74,7 @@
                         durationPara.appendChild(document.createTextNode(`Duration:
                         ${song["duration_mins"]} minutes`));
 
-                        div.appendChile(durationPara);
+                        div.appendChild(durationPara);
 
                         let linkPara = document.createElement("p");
                         let link = document.createElement("a");
@@ -95,21 +93,22 @@
             }
 
         </script>
-    
+
+    </head>
    
 
     <body>
         <h1> Songs Search</h1>
         <p>
-        <label for="search field">Search within:</label>
-        <select id="search field">
+        <label for="searchField">Search within:</label>
+        <select id="searchField">
             <option value="title">Title</option>
             <option value="artists">Artist</option>
             <option value="genres">Genre</option>
         </select>
 
-        <label for="sort order">Sort by:</label>
-        <select id="sort order">
+        <label for="sortOrder">Sort by:</label>
+        <select id="sortOrder">
             <option value="popularity">Popularity Score</option>
             <option value="duration_mins">Duration</option>
         </select>
