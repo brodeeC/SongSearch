@@ -21,7 +21,7 @@
 
                 let sort_order = document.getElementById("sort order").value;
 
-                let explicit = document.getElementById("explicit");
+                let explicit = document.getElementById("explicit").checked;
 
                 let search_box = document.getElementById("searchBox").value;
 
@@ -30,6 +30,12 @@
                 //Clears the previous content before appending new data
                 div.innerHTML = '';
 
+                script.forEach(song => {
+                    if (script[search_field] === search_box){
+
+                    }
+                })
+
                 if(num === 0){
                     div.className = "hidden";
                 }
@@ -37,11 +43,9 @@
                 div.className = "show";
 
                 if(num === 6){
-                    console.log("if num === 6");
                     let currP = Array.from(docment.getElementByTagName("p"));
                     currP.forEach(para => {para.className = "hidden";});
                 }
-                console.log("below if num === 6");
                 let p = document.createElement("p");
                 let div1 = document.createElement("div");
 
