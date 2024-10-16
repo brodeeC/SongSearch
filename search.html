@@ -17,7 +17,6 @@
                 let groups = await fetch("http://127.0.0.1:5000/song");
                 let script = await groups.json();
                 let num = document.querySelector("select").value;
-                console.log(script);
 
                 let div = document.getElementById("names");
                 
@@ -47,7 +46,7 @@
                     p.appendChild(text1);
                     p.appendChild(br);
                     div.appendChild(p);
-                    document.appendChild(div);
+                    document.body.appendChild(div);
 
                 }
 
@@ -80,6 +79,10 @@
             <input type="search" id="searchField" placeholder="Enter Search Terms...">
             <button onclick="html()">Search</button>
         </p>
+        <div id = "names">
+
+        </div>
+        
     </body>
 
 </html>
